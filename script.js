@@ -29,7 +29,7 @@ function searchCity() {
         alert('Please enter a city name.');
         return;
     } else {
-        cityName.textContent = city;
+        cityName.textContent = city ;
     }
     let trimcity = city.trim();
     getDetails(trimcity);
