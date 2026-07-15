@@ -41,7 +41,7 @@ async function getDetails(city) {
     const searchCity = city
     try {
         // const response = await fetch(longlatAPI.replace('{state}', searchCity).replace('{API key}', apiKey)); 
-        const response = await fetch(`http://api.openweathermap.org/data/2.5/weather?&units=metric&q=${searchCity}&limit=5&appid=${apiKey}`);
+        const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?&units=metric&q=${searchCity}&limit=5&appid=${apiKey}`);
         console.log(response)
         const data = await response.json()
         console.log(data)
