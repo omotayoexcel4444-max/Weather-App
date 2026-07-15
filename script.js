@@ -31,7 +31,7 @@ function searchCity() {
     } else {
         cityName.textContent = city;
     }
-     let trimcity = city.trim();
+    let trimcity = city.trim();
     getDetails(trimcity);
 }
 
@@ -40,24 +40,22 @@ searchIcon.addEventListener('click', searchCity);
 async function getDetails(city) {
     const searchCity = city
     try {
-       // const response = await fetch(longlatAPI.replace('{state}', searchCity).replace('{API key}', apiKey)); 
-        const response = await fetch(
-      `http://api.openweathermap.org/data/2.5/weather?&units=metric&q=${searchCity}&limit=5&appid=${apiKey}`,
-    );
-    console.log(response)
-    const data = await response.json () 
-    console.log(data)
-    displayData(data)
+        // const response = await fetch(longlatAPI.replace('{state}', searchCity).replace('{API key}', apiKey)); 
+        const response = await fetch(`http://api.openweathermap.org/data/2.5/weather?&units=metric&q=${searchCity}&limit=5&appid=${apiKey}`);
+        console.log(response)
+        const data = await response.json()
+        console.log(data)
+        displayData(data)
     }
-    catch (error){
-    
+    catch (error) {
+
     }
 }
 
 function displayData(data) {
-    temp.textContent = "Temperature: " +  data.main.temp + "°C"
+    temp.textContent = "Temperature: " + data.main.temp + "°C"
     humid.textContent = "Humidity: " + data.main.humidity + "%"
-    wSpeed.textContent = "Windspeed: " +  data.wind.speed + "mp/h"
+    wSpeed.textContent = "Windspeed: " + data.wind.speed + "mp/h"
     icon.src = `https://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`;
 
 
